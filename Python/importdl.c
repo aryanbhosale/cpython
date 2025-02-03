@@ -427,6 +427,7 @@ _PyImport_RunModInitFunc(PyModInitFunction p0,
     /* Package context is needed for single-phase init */
     const char *oldcontext = _PyImport_SwapPackageContext(info->newcontext);
     PyObject *m = p0();
+    errno = 0;
     _PyImport_SwapPackageContext(oldcontext);
 
     /* Validate the result (and populate "res". */
